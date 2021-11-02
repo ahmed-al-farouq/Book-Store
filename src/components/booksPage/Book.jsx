@@ -20,14 +20,14 @@ import {
 } from './styles/bookStyle';
 import { removeBook } from '../../redux/books/books';
 
-function Book({
+const Book = ({
   bookType,
   bookTitle,
   autherName,
   percent,
   chapter,
   id,
-}) {
+}) => {
   const dispatch = useDispatch();
   return (
     <BookDiv>
@@ -65,7 +65,7 @@ function Book({
       </RightSection>
     </BookDiv>
   );
-}
+};
 
 Book.propTypes = {
   bookType: propTypes.string.isRequired,

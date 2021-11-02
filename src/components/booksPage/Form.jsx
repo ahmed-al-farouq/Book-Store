@@ -6,7 +6,7 @@ import {
 } from './styles/formStyle';
 import { addBook } from '../../redux/books/books';
 
-function Form() {
+const Form = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -58,6 +58,6 @@ function Form() {
       </StyledForm>
     </FormContainer>
   );
-}
+};
 
 export default Form;

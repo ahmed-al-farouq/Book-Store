@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Book from './booksPage/Book';
 import Form from './booksPage/Form';
 
-function Books() {
+const Books = () => {
   const books = useSelector((state) => state.booksReducer);
   return (
     <section style={{ marginBottom: '12rem' }}>
@@ -28,6 +28,6 @@ function Books() {
       <Form />
     </section>
   );
-}
+};
 
 export default Books;
