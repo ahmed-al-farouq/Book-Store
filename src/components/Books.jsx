@@ -1,13 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import Book from './booksPage/Book';
 import Form from './booksPage/Form';
-
-const Hr = styled.hr`
-  width: 86rem;
-  border: solid 1px #e8e8e8;
-  margin: 2.5rem auto 1.813rem auto;
-`;
 
 function Books() {
   return (
@@ -33,7 +26,7 @@ function Books() {
         percent="64%"
         chapter="Chapter 17"
       />
-      <Hr />
+      <hr />
       <Form />
     </section>
   );
