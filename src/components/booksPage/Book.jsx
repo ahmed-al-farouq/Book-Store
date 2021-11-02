@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import CircularProgressBar from './CircularProgressBar';
 import {
   BookDiv,
@@ -17,6 +18,7 @@ import {
   ChapterText,
   UpdateProgressButton,
 } from './styles/bookStyle';
+import { removeBook } from '../../redux/books/books';
 
 function Book({
   bookType,
@@ -25,6 +27,8 @@ function Book({
   percent,
   chapter,
 }) {
+  const dispatch = useDispatch();
+
   return (
     <BookDiv>
       <LeftSection>
@@ -37,7 +41,7 @@ function Book({
           <Li>
             Comments
           </Li>
-          <Li>
+          <Li onClick={() => dispatch(removeBook())}>
             Remove
           </Li>
           <Li>
@@ -67,7 +71,7 @@ Book.propTypes = {
   bookType: propTypes.string.isRequired,
   bookTitle: propTypes.string.isRequired,
   autherName: propTypes.string.isRequired,
-  percent: propTypes.number.isRequired,
+  percent: propTypes.string.isRequired,
   chapter: propTypes.string.isRequired,
 };
 
