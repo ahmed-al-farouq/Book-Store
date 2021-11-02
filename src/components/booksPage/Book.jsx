@@ -26,9 +26,9 @@ function Book({
   autherName,
   percent,
   chapter,
+  id,
 }) {
   const dispatch = useDispatch();
-
   return (
     <BookDiv>
       <LeftSection>
@@ -41,7 +41,7 @@ function Book({
           <Li>
             Comments
           </Li>
-          <Li onClick={() => dispatch(removeBook())}>
+          <Li onClick={() => dispatch(removeBook(id))}>
             Remove
           </Li>
           <Li>
@@ -73,6 +73,7 @@ Book.propTypes = {
   autherName: propTypes.string.isRequired,
   percent: propTypes.string.isRequired,
   chapter: propTypes.string.isRequired,
+  id: propTypes.string.isRequired,
 };
 
 export default Book;

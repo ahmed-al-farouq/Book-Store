@@ -16,13 +16,14 @@ const FormTitle = styled.h2`
 
 const StyledForm = styled.form`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-item: center;
   margin-bottom: 30px;
 `;
 
 const BookTitleInput = styled.input`
-  width: 42.5rem;
+  width: 30.5rem;
   height: 1.813rem;
   margin: 1.188rem 2.125rem 0;
   padding: 0.375rem 0.938rem 0.563rem 1rem;
@@ -32,7 +33,7 @@ const BookTitleInput = styled.input`
   outline: none;
 `;
 
-const CategoriesInput = styled.input`
+const BookAuthorInput = styled.input`
   width: 17.813rem;
   height: 1.813rem;
   margin: 1.188rem 2.125rem 0;
@@ -62,6 +63,13 @@ const SubmitInput = styled.input`
   cursor: pointer;
 `;
 
+const Error = styled.span`
+  width: 50%;
+  font-family: 'Roboto Slab', serif;
+  text-transform: uppercase;
+  margin: 1.188rem 2.325rem 0;
+  color: #b31c1c;
+`;
 export {
-  FormContainer, FormTitle, StyledForm, BookTitleInput, CategoriesInput, SubmitInput,
+  FormContainer, FormTitle, StyledForm, BookTitleInput, BookAuthorInput, SubmitInput, Error,
 };
