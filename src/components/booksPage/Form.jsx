@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import {
   FormContainer, FormTitle, StyledForm, BookTitleInput, CategoriesInput, SubmitInput,
 } from './styles/formStyle';
@@ -9,7 +10,7 @@ function Form() {
   const dispatch = useDispatch();
   const addNewBook = () => {
     const newBook = {
-      id: 1,
+      id: uuidv4(),
       title: 'a',
       author: 'awe',
     };
