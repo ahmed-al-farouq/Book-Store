@@ -25,7 +25,7 @@ const Books = () => {
     }
   };
   return (
-    <section style={{ marginBottom: '12rem' }}>
+    <section style={{ width: '90%', margin: '0 auto 12rem auto' }}>
       {iterateBooks()}
       {
         displayedBooks.length ? displayedBooks
