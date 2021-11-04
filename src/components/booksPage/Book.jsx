@@ -18,7 +18,7 @@ import {
   ChapterText,
   UpdateProgressButton,
 } from './styles/bookStyle';
-import { removeBook } from '../../redux/books/books';
+import { deleteBook } from '../../redux/cofigureStore';
 
 const Book = ({
   bookType,
@@ -41,7 +41,7 @@ const Book = ({
           <Li>
             Comments
           </Li>
-          <Li onClick={() => dispatch(removeBook(id))}>
+          <Li onClick={() => dispatch(deleteBook(id))}>
             Remove
           </Li>
           <Li>
