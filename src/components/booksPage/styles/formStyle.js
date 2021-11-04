@@ -33,8 +33,8 @@ const BookTitleInput = styled.input`
   outline: none;
 `;
 
-const BookAuthorInput = styled.input`
-  width: 17.813rem;
+const StyledInput = styled.input`
+  width: 5.813rem;
   height: 1.813rem;
   margin: 1.188rem 2.125rem 0;
   padding: 0.375rem 0.938rem 0.563rem 1rem;
@@ -71,5 +71,5 @@ const Error = styled.span`
   color: #b31c1c;
 `;
 export {
-  FormContainer, FormTitle, StyledForm, BookTitleInput, BookAuthorInput, SubmitInput, Error,
+  FormContainer, FormTitle, StyledForm, BookTitleInput, StyledInput, SubmitInput, Error,
 };

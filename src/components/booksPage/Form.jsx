@@ -2,38 +2,38 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import {
-  FormContainer, FormTitle, StyledForm, BookTitleInput, BookAuthorInput, SubmitInput, Error,
+  FormContainer, FormTitle, StyledForm, BookTitleInput, StyledInput, SubmitInput, Error,
 } from './styles/formStyle';
-import { addBook } from '../../redux/books/books';
+import { postBook } from '../../redux/cofigureStore';
 
 const Form = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
   const [error, setError] = useState('');
   const addNewBook = () => {
     const newBook = {
-      id: uuidv4(),
+      item_id: uuidv4(),
       title,
-      author,
+      category,
     };
-    if (title.length && author.length) {
-      dispatch(addBook(newBook));
+    if (title.length && category.length) {
+      dispatch(postBook(newBook));
       setTitle('');
-      setAuthor('');
-    } else if (!title.length && !author.length) {
-      setError('Please add book title & author');
-    } else if (!author.length) {
-      setError('Please add book author');
-    } else {
+      setCategory('');
+    } else if (!title.length && !category.length) {
+      setError('Please add book title, and category');
+    } else if (!title.length) {
       setError('Please add book title');
+    } else {
+      setError('Please add book category');
     }
   };
   const handelTitleChange = (e) => {
     setTitle(e.target.value);
   };
-  const handelAuthorChange = (e) => {
-    setAuthor(e.target.value);
+  const handelCategoryChange = (e) => {
+    setCategory(e.target.value);
   };
   return (
     <FormContainer>
@@ -45,12 +45,11 @@ const Form = () => {
           onChange={handelTitleChange}
           value={title}
         />
-        <BookAuthorInput
-          type="text"
-          placeholder="Book auther"
-          onChange={handelAuthorChange}
-          value={author}
-        />
+        <StyledInput list="category" placeholder="Category" value={category} onChange={handelCategoryChange} />
+        <datalist id="category">
+          <option value="Action">Action</option>
+          <option value="Fiction">Fiction</option>
+        </datalist>
         <SubmitInput type="button" value="ADD BOOK" onClick={addNewBook} />
         <Error>
           {error}
