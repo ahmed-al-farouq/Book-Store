@@ -12,13 +12,13 @@ const Form = () => {
   const [category, setCategory] = useState('');
   const [error, setError] = useState('');
   const addNewBook = () => {
-    const newBook = {
-      item_id: uuidv4(),
-      title,
-      category,
-    };
+    const id = uuidv4();
     if (title.length && category.length) {
-      dispatch(postBook(newBook));
+      dispatch(postBook(
+        id,
+        title,
+        category,
+      ));
       setTitle('');
       setCategory('');
     } else if (!title.length && !category.length) {
@@ -48,7 +48,11 @@ const Form = () => {
         <StyledInput list="category" placeholder="Category" value={category} onChange={handelCategoryChange} />
         <datalist id="category">
           <option value="Action">Action</option>
-          <option value="Fiction">Fiction</option>
+          <option value="Literary Fiction">Literary Fiction</option>
+          <option value="Comic">Comic</option>
+          <option value="Romantic">Romantic</option>
+          <option value="Historical">Historical</option>
+          <option value="Detective and Mystery">Detective and Mystery</option>
         </datalist>
         <SubmitInput type="button" value="ADD BOOK" onClick={addNewBook} />
         <Error>

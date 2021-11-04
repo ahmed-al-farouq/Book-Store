@@ -1,28 +1,26 @@
-/* eslint-disable no-restricted-syntax */
+/* eslint-disable array-callback-return */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Book from './booksPage/Book';
 import Form from './booksPage/Form';
 
 const Books = () => {
-  const books = useSelector((state) => state.booksReducer.books);
+  const books = useSelector((state) => state.booksReducer);
   const displayedBooks = [];
   const iterateBooks = () => {
-    for (const book in books) {
-      if (Object.prototype.hasOwnProperty.call(books, book)) {
-        displayedBooks.push(
-          <Book
-            bookType={books[book][0].category}
-            bookTitle={books[book][0].title}
-            autherName="Ahmed Omar"
-            percent="64%"
-            chapter="Chapter"
-            key={book}
-            id={book}
-          />,
-        );
-      }
-    }
+    books.map((book) => {
+      displayedBooks.push(
+        <Book
+          key={book[0]}
+          id={book[0]}
+          bookTitle={book[1][0].title}
+          bookType={book[1][0].category}
+          autherName="Ahmed Omar"
+          percent="55%"
+          chapter="Chapter 1"
+        />,
+      );
+    });
   };
   return (
     <section style={{ marginBottom: '12rem' }}>

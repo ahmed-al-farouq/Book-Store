@@ -1,9 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import axios from 'axios';
 import booksReducer, {
-  fetchBooksFailed, fetchBooksSucceed, postDataFailed, postDataSucceed, removeBook, startFetchBooks,
+  addBook,
+  fetchBooks,
+  removeBook,
 } from './books/books';
 
 const reducer = combineReducers({
@@ -14,36 +15,39 @@ const store = createStore(
   reducer,
   applyMiddleware(thunk, logger),
 );
-export const getBooks = () => (dispatch) => {
-  dispatch(startFetchBooks(true));
-  axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/AnQ6KvkQtjFMjmxqi9Wb/books')
-    .then((books) => {
-      dispatch(fetchBooksSucceed(books.data));
-    })
-    .catch((err) => {
-      dispatch(fetchBooksFailed(err));
-    });
-};
-export const postBook = (newBook) => (dispatch) => {
-  axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/AnQ6KvkQtjFMjmxqi9Wb/books', newBook)
-    .then((res) => {
-      dispatch(postDataSucceed(res.data));
-      dispatch(getBooks());
-    })
-    .catch((err) => {
-      dispatch(postDataFailed(err));
-    });
-};
-export const deletetBook = (id) => (dispatch) => {
-  axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/AnQ6KvkQtjFMjmxqi9Wb/books/${id}`, id)
-    .then((res) => {
-      dispatch(removeBook(res.data));
-      dispatch(getBooks());
-    })
-    .catch((err) => {
-      dispatch(postDataFailed(err));
-    });
+
+export const getBooks = () => async (dispatch) => {
+  await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/AnQ6KvkQtjFMjmxqi9Wb/books')
+    .then((res) => res.json())
+    .then((data) => dispatch(fetchBooks(Object.entries(data))))
+    .catch((err) => err);
 };
 
-store.dispatch(getBooks());
+export const postBook = (id, title, category) => async (dispatch) => {
+  await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/AnQ6KvkQtjFMjmxqi9Wb/books', {
+    method: 'POST',
+    body: JSON.stringify({ item_id: id, title, category }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((res) => {
+      res.text();
+      dispatch(addBook([id, [{ title, category }]]));
+    })
+    .catch((err) => err);
+};
+
+export const deleteBook = (id) => async (dispatch) => {
+  await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/AnQ6KvkQtjFMjmxqi9Wb/books/${id}`, {
+    method: 'DELETE',
+    body: JSON.stringify({ item_id: id }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((res) => res.text())
+    .then(() => dispatch(removeBook(id)))
+    .catch((err) => err);
+};
 export default store;
