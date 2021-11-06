@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const BookDiv = styled.div`
   flex-wrap: wrap;
   padding: 2rem 2rem 1.625rem;
+  margin: 15px 0;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background-color: #fff;

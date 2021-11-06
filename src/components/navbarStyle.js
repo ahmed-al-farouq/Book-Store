@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 const Nav = styled.nav`
   margin: 0 0 2.375rem;
-  padding: 1.438rem 6.188rem 1.688rem 6.25rem;
+  padding: 1.438rem 0 1.688rem;
   box-shadow: 0 0 4px 1px #0000186e;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   @media (max-width: 768px) {
     padding: 1.438rem 0 1.688rem 0;
@@ -44,7 +44,7 @@ const Ul = styled.ul`
   justify-content: space-evenly;
   align-items: center;
   list-style: none;
-  width: 25%;
+  width: 0%;
   @media (max-width: 768px) {
     flex-direction: column;
   }

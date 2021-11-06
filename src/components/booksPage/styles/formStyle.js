@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 const FormContainer = styled.div`
-  width: 90%;
   margin: 2.313rem auto;
 `;
 
 const FormTitle = styled.h2`
-  margin: 1.813rem 0 1.188rem 2.75rem;
+  margin: 1.813rem 0 1.188rem 2.75rem 0;
   font-family:  'Montserrat', sans-serif;
   font-size: 1.25rem;
   font-weight: bold;
@@ -24,7 +23,7 @@ const StyledForm = styled.form`
 
 const BookTitleInput = styled.input`
   width: 30.5rem;
-  margin: 1.188rem 2.125rem 0;
+  margin: 1.188rem 0 0;
   padding: 0.375rem 0.938rem 0.563rem 1rem;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
