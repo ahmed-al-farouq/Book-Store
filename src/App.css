@@ -1,5 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap');
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0291ffa4;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0290ff;
+}
+
+.d-none {
+  display: none;
+}
+
+.menu-open {
+  height: 185px !important;
+  transition: 0.5s;
+}
+
 .App {
   text-align: center;
   background-color: rgba(0, 0, 0, 0.05);

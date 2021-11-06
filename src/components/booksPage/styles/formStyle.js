@@ -67,6 +67,7 @@ const Error = styled.span`
   margin: 1.188rem 2.325rem 0;
   color: #b31c1c;
 `;
+
 export {
   FormContainer, FormTitle, StyledForm, BookTitleInput, StyledInput, SubmitInput, Error,
 };

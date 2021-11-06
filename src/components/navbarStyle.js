@@ -7,6 +7,10 @@ const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    padding: 1.438rem 0 1.688rem 0;
+    position: relative;
+  }
 `;
 
 const Logo = styled.span`
@@ -17,12 +21,33 @@ const Logo = styled.span`
   color: #0290ff;
 `;
 
+const CollapseContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 95px;
+    width: 100%;
+    padding: 10px 20px;
+    background: #fff;
+    flex-direction: column-reverse;
+    z-index: 4;
+    box-shadow: 0 3px 3px 0px #0000186e;
+    height: 0;
+    overflow: hidden;
+  }
+`;
 const Ul = styled.ul`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   list-style: none;
   width: 25%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Li = styled.li`
@@ -43,6 +68,15 @@ const Icon = styled.div`
 
 `;
 
+const MenuIcon = styled.div`
+  & svg {
+    font-size: 30px;
+    color: #0290ff;
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
 export {
-  Nav, Logo, Ul, Li, Icon,
+  Nav, Logo, Ul, Li, Icon, CollapseContainer, MenuIcon,
 };
