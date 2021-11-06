@@ -47,8 +47,12 @@ const Form = () => {
         />
         <StyledInput list="category" placeholder="Category" value={category} onChange={handelCategoryChange} />
         <datalist id="category">
-          <option value="Action" label="Action" />
-          <option value="Fiction" label="Fiction" />
+          <option value="Action">Action</option>
+          <option value="Literary Fiction">Literary Fiction</option>
+          <option value="Comic">Comic</option>
+          <option value="Romantic">Romantic</option>
+          <option value="Historical">Historical</option>
+          <option value="Detective and Mystery">Detective and Mystery</option>
         </datalist>
         <SubmitInput type="button" value="ADD BOOK" onClick={addNewBook} />
         <Error>
