@@ -2,8 +2,7 @@
 
 > Book Store is a website that allows you to make you book list by adding, removing books.
 
-![screenshot](./screenshot.png)
-
+> ![screenshot](./screenshot.png)
 ## Built With
 
 - JS & ECMA 6
